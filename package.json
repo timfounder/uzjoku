@@ -1,0 +1,14 @@
+{
+  "name": "uzjoku-site",
+  "version": "1.0.0",
+  "description": "OʻzJOKU — University of Journalism and Mass Communications website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}

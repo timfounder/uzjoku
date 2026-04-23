@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OʻzJOKU — Университет журналистики и массовых коммуникаций</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,500;1,9..144,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<template id="__bundler_thumbnail" data-bg-color="#0071e3">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#0071e3"/>
+    <text x="600" y="470" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-weight="500" font-size="260" fill="#ffffff" letter-spacing="-8">J</text>
+    <text x="600" y="580" text-anchor="middle" font-family="monospace" font-size="28" fill="#ffffff" opacity="0.7" letter-spacing="12">OʻzJOKU</text>
+  </svg>
+</template>
+</head>
+<body>
+
+<!-- Announcement / lang / theme -->
+<div class="announce">
+  <div class="announce-inner">
+    <div class="announce-left">
+      <span class="dot"></span>
+      <span class="mono" data-i18n="top_admission"></span>
+    </div>
+    <div class="announce-right">
+      <a href="#" data-i18n="top_library"></a>
+      <a href="#" data-i18n="top_hemis"></a>
+      <a href="#" data-i18n="top_contacts"></a>
+      <div class="lang" id="lang-switcher">
+        <button data-lang="ru">RU</button>
+        <button data-lang="uz">UZ</button>
+        <button data-lang="en">EN</button>
+      </div>
+      <div class="theme-toggle" id="theme-switcher" title="Theme">
+        <button data-theme="light" title="Light">☀</button>
+        <button data-theme="dark" title="Dark">☾</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#home" class="brand" data-page="home">
+      <span class="brand-mark">J</span>
+      <span data-i18n="brand"></span>
+    </a>
+    <ul class="nav-list">
+      <li><button data-page="about" data-i18n="nav_university"></button></li>
+      <li><button data-page="faculties" data-i18n="nav_faculties"></button></li>
+      <li><button data-page="faculty" data-i18n="nav_education"></button></li>
+      <li><button data-page="kafedra" data-i18n="nav_science"></button></li>
+      <li><button data-page="news" data-i18n="nav_news"></button></li>
+      <li><button data-page="contacts" data-i18n="top_contacts"></button></li>
+    </ul>
+    <button class="nav-search" aria-label="Search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    </button>
+    <button class="nav-apply" data-page="admission">
+      <span data-i18n="nav_admission"></span>
+      <span class="arrow">→</span>
+    </button>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============ HOME ============ -->
+<section class="page active" data-page-id="home">
+  <div class="hero">
+    <div class="hero-bg" id="hero-bg"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow hero-eyebrow reveal" data-i18n="hero_eyebrow"></div>
+        <h1 class="hero-h1">
+          <span class="line"><span class="reveal d1" data-i18n="hero_h1_a"></span></span>
+          <span class="line"><em class="reveal d2" data-i18n="hero_h1_b"></em></span>
+          <span class="line"><span class="reveal d3" data-i18n="hero_h1_c"></span></span>
+        </h1>
+        <p class="hero-sub reveal d4" data-i18n="hero_sub"></p>
+        <div class="hero-cta reveal d5">
+          <button class="btn btn-primary" data-page="admission">
+            <span data-i18n="hero_cta_primary"></span>
+            <span class="arrow">→</span>
+          </button>
+          <button class="btn btn-ghost">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <span data-i18n="hero_cta_secondary"></span>
+          </button>
+        </div>
+      </div>
+      <div class="hero-visual reveal d3">
+        <div class="hv-orb"></div>
+        <div class="hv-card">
+          <div class="k" data-i18n="news_kicker"></div>
+          <h4 data-news-bind="title:1"></h4>
+          <div class="m">
+            <span>12 APR · 5 MIN</span>
+            <span class="go">→</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span data-i18n="hero_scroll"></span>
+      <span class="line-anim"></span>
+    </div>
+  </div>
+
+  <div class="ticker">
+    <div class="ticker-track" id="ticker-track"></div>
+  </div>
+
+  <div class="sh">
+    <div class="sh-left">
+      <div class="eyebrow reveal" data-i18n="stats_kicker"></div>
+      <h2 class="reveal d1" data-i18n="stats_title"></h2>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stats-grid" id="stats-grid">
+      <div class="stat-card" data-stat="stat_students"><div class="num"><span class="count" data-count="3280">0</span></div><div class="lbl" data-i18n="stat_students_l"></div><div class="bar"></div></div>
+      <div class="stat-card" data-stat="stat_faculties"><div class="num"><span class="count" data-count="3">0</span></div><div class="lbl" data-i18n="stat_faculties_l"></div><div class="bar"></div></div>
+      <div class="stat-card" data-stat="stat_kafedras"><div class="num"><span class="count" data-count="7">0</span></div><div class="lbl" data-i18n="stat_kafedras_l"></div><div class="bar"></div></div>
+      <div class="stat-card" data-stat="stat_partners"><div class="num"><span class="count" data-count="42">0</span><span class="suffix">+</span></div><div class="lbl" data-i18n="stat_partners_l"></div><div class="bar"></div></div>
+      <div class="stat-card" data-stat="stat_teachers"><div class="num"><span class="count" data-count="208">0</span></div><div class="lbl" data-i18n="stat_teachers_l"></div><div class="bar"></div></div>
+      <div class="stat-card" data-stat="stat_programs"><div class="num"><span class="count" data-count="22">0</span></div><div class="lbl" data-i18n="stat_programs_l"></div><div class="bar"></div></div>
+    </div>
+  </div>
+
+  <div class="sh">
+    <div class="sh-left">
+      <div class="eyebrow reveal" data-i18n="fac_kicker"></div>
+      <h2 class="reveal d1" data-i18n="fac_title"></h2>
+    </div>
+    <button class="sh-link reveal d2" data-page="faculties">
+      <span data-i18n="fac_cta"></span><span>→</span>
+    </button>
+  </div>
+
+  <div class="facs">
+    <div class="fac reveal" data-page="faculty">
+      <div class="fac-bg"></div>
+      <div class="fac-num">01 / Faculty</div>
+      <div class="fac-art" data-mark="Int'l"></div>
+      <h3 data-i18n="fac1_name"></h3>
+      <p data-i18n="fac1_desc"></p>
+      <div class="fac-meta"><span data-i18n="fac1_meta"></span><span class="arrow">→</span></div>
+    </div>
+    <div class="fac reveal d1" data-page="faculty">
+      <div class="fac-bg"></div>
+      <div class="fac-num">02 / Faculty</div>
+      <div class="fac-art" data-mark="TV/R"></div>
+      <h3 data-i18n="fac2_name"></h3>
+      <p data-i18n="fac2_desc"></p>
+      <div class="fac-meta"><span data-i18n="fac2_meta"></span><span class="arrow">→</span></div>
+    </div>
+    <div class="fac reveal d2" data-page="faculty">
+      <div class="fac-bg"></div>
+      <div class="fac-num">03 / Faculty</div>
+      <div class="fac-art" data-mark="Media"></div>
+      <h3 data-i18n="fac3_name"></h3>
+      <p data-i18n="fac3_desc"></p>
+      <div class="fac-meta"><span data-i18n="fac3_meta"></span><span class="arrow">→</span></div>
+    </div>
+  </div>
+
+  <div class="sh">
+    <div class="sh-left">
+      <div class="eyebrow reveal" data-i18n="news_kicker"></div>
+      <h2 class="reveal d1" data-i18n="news_title"></h2>
+    </div>
+    <button class="sh-link reveal d2" data-page="news">
+      <span data-i18n="news_link"></span><span>→</span>
+    </button>
+  </div>
+
+  <div class="news" id="home-news"></div>
+
+  <div class="journal">
+    <div class="journal-inner">
+      <div>
+        <div class="eyebrow reveal" data-i18n="journal_kicker"></div>
+        <h2 class="reveal d1" data-i18n="journal_title"></h2>
+        <p class="reveal d2" data-i18n="journal_desc"></p>
+        <div class="journal-cta reveal d3">
+          <button class="btn btn-primary"><span data-i18n="journal_read"></span><span class="arrow">→</span></button>
+          <button class="btn btn-ghost"><span data-i18n="journal_submit"></span></button>
+        </div>
+      </div>
+      <div class="cover">
+        <div class="cover-inner">
+          <div class="k">OʻZJOKU · VOL. VII · 2026</div>
+          <h3>Media &<br><em>Communications</em><br>Review</h3>
+          <div class="sub" data-i18n="journal_desc"></div>
+          <ul>
+            <li><span class="pg">p. 04</span><span class="ttl">Algorithmic objectivity</span></li>
+            <li><span class="pg">p. 18</span><span class="ttl">Crisis narrative in Uzbek media</span></li>
+            <li><span class="pg">p. 36</span><span class="ttl">Data-journalism in Central Asia</span></li>
+            <li><span class="pg">p. 52</span><span class="ttl">AI ethics in editorial practice</span></li>
+            <li><span class="pg">p. 68</span><span class="ttl">Media literacy of Gen Z</span></li>
+          </ul>
+          <div class="foot">ISSN 2181-4027 · DOAJ · SCOPUS Q3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sh">
+    <div class="sh-left">
+      <div class="eyebrow reveal" data-i18n="infra_kicker"></div>
+      <h2 class="reveal d1" data-i18n="infra_title"></h2>
+    </div>
+  </div>
+
+  <div class="infra">
+    <div class="infra-card reveal">
+      <div class="num">01</div>
+      <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+      <h4 data-i18n="i1_n"></h4><p data-i18n="i1_d"></p>
+    </div>
+    <div class="infra-card reveal d1">
+      <div class="num">02</div>
+      <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg></div>
+      <h4 data-i18n="i2_n"></h4><p data-i18n="i2_d"></p>
+    </div>
+    <div class="infra-card reveal d2">
+      <div class="num">03</div>
+      <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21V12h6v9"/></svg></div>
+      <h4 data-i18n="i3_n"></h4><p data-i18n="i3_d"></p>
+    </div>
+    <div class="infra-card reveal">
+      <div class="num">04</div>
+      <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></div>
+      <h4 data-i18n="i4_n"></h4><p data-i18n="i4_d"></p>
+    </div>
+    <div class="infra-card reveal d1">
+      <div class="num">05</div>
+      <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="4"/><path d="M8 6l2-3h4l2 3"/></svg></div>
+      <h4 data-i18n="i5_n"></h4><p data-i18n="i5_d"></p>
+    </div>
+    <div class="infra-card reveal d2">
+      <div class="num">06</div>
+      <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 3a2 2 0 0 1 2 2v14l-4-4H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h12z"/></svg></div>
+      <h4 data-i18n="i6_n"></h4><p data-i18n="i6_d"></p>
+    </div>
+  </div>
+
+  <div class="adm-cta">
+    <div class="adm-inner">
+      <div>
+        <div class="adm-badge"><span class="p"></span><span data-i18n="adm_kicker"></span></div>
+        <h3 data-i18n="adm_title"></h3>
+        <p data-i18n="adm_desc"></p>
+      </div>
+      <div class="adm-action">
+        <button class="btn btn-white" data-page="admission"><span data-i18n="adm_cta"></span><span class="arrow">→</span></button>
+        <div class="deadline" data-i18n="adm_deadline"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="page" data-page-id="about">
+  <div class="crumbs">
+    <a data-page="home">Home</a><span class="sep">/</span>
+    <span class="cur" data-i18n="nav_university"></span>
+  </div>
+  <div class="sub-hero">
+    <div>
+      <div class="eyebrow" data-i18n="aboutp_title"></div>
+      <h1 data-i18n="aboutp_title"></h1>
+      <p class="deck" data-i18n="aboutp_desc"></p>
+    </div>
+    <div class="sub-stats">
+      <div class="shs"><div class="n"><span class="count" data-count="3280">0</span></div><div class="l" data-i18n="stat_students_l"></div></div>
+      <div class="shs"><div class="n"><span class="count" data-count="208">0</span></div><div class="l" data-i18n="stat_teachers_l"></div></div>
+      <div class="shs"><div class="n"><span class="count" data-count="22">0</span></div><div class="l" data-i18n="stat_programs_l"></div></div>
+      <div class="shs"><div class="n"><em>2018</em></div><div class="l">est.</div></div>
+    </div>
+  </div>
+
+  <div class="stats" style="margin-top:48px">
+    <div class="stats-grid">
+      <div class="stat-card"><div class="num"><span class="count" data-count="3280">0</span></div><div class="lbl" data-i18n="stat_students_l"></div><div class="bar"></div></div>
+      <div class="stat-card"><div class="num"><span class="count" data-count="3">0</span></div><div class="lbl" data-i18n="stat_faculties_l"></div><div class="bar"></div></div>
+      <div class="stat-card"><div class="num"><span class="count" data-count="7">0</span></div><div class="lbl" data-i18n="stat_kafedras_l"></div><div class="bar"></div></div>
+      <div class="stat-card"><div class="num"><span class="count" data-count="42">0</span><span class="suffix">+</span></div><div class="lbl" data-i18n="stat_partners_l"></div><div class="bar"></div></div>
+      <div class="stat-card"><div class="num"><span class="count" data-count="208">0</span></div><div class="lbl" data-i18n="stat_teachers_l"></div><div class="bar"></div></div>
+      <div class="stat-card"><div class="num"><span class="count" data-count="22">0</span></div><div class="lbl" data-i18n="stat_programs_l"></div><div class="bar"></div></div>
+    </div>
+  </div>
+
+  <div class="dean">
+    <div class="dean-photo"></div>
+    <div>
+      <div class="eyebrow">◆ Rector's message</div>
+      <h3>Sherzodxon <em>Qudratxoʻja</em></h3>
+      <div class="role">Rector · DSc in Philology, Professor</div>
+      <div class="quote">«Журналистика XXI века — это профессия без границ. Мы готовим кадры, чьи дипломы будут работать на пяти континентах.»</div>
+      <div class="bio">Университет основан Указом Президента Республики Узбекистан от 24 мая 2018 года и объединяет лучшие практики отечественной и мировой школ журналистики. За 8 лет университет превратился в крупнейший в Центральной Азии центр подготовки специалистов по журналистике, массовым коммуникациям и медиадизайну.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FACULTIES ============ -->
+<section class="page" data-page-id="faculties">
+  <div class="crumbs">
+    <a data-page="home">Home</a><span class="sep">/</span>
+    <span class="cur" data-i18n="nav_faculties"></span>
+  </div>
+  <div class="sub-hero">
+    <div>
+      <div class="eyebrow" data-i18n="fac_kicker"></div>
+      <h1 data-i18n="fac_title"></h1>
+      <p class="deck" data-i18n="fac1_desc"></p>
+    </div>
+    <div class="sub-stats">
+      <div class="shs"><div class="n"><span class="count" data-count="3">0</span></div><div class="l" data-i18n="stat_faculties_l"></div></div>
+      <div class="shs"><div class="n"><span class="count" data-count="7">0</span></div><div class="l" data-i18n="stat_kafedras_l"></div></div>
+      <div class="shs"><div class="n"><span class="count" data-count="22">0</span></div><div class="l" data-i18n="stat_programs_l"></div></div>
+      <div class="shs"><div class="n"><span class="count" data-count="208">0</span></div><div class="l" data-i18n="stat_teachers_l"></div></div>
+    </div>
+  </div>
+  <div class="facs" style="padding-top:48px">
+    <div class="fac" data-page="faculty">
+      <div class="fac-bg"></div>
+      <div class="fac-num">01 / Faculty</div>
+      <div class="fac-art" data-mark="Int'l"></div>
+      <h3 data-i18n="fac1_name"></h3>
+      <p data-i18n="fac1_desc"></p>
+      <div class="fac-meta"><span data-i18n="fac1_meta"></span><span class="arrow">→</span></div>
+    </div>
+    <div class="fac" data-page="faculty">
+      <div class="fac-bg"></div>
+      <div class="fac-num">02 / Faculty</div>
+      <div class="fac-art" data-mark="TV/R"></div>
+      <h3 data-i18n="fac2_name"></h3>
+      <p data-i18n="fac2_desc"></p>
+      <div class="fac-meta"><span data-i18n="fac2_meta"></span><span class="arrow">→</span></div>
+    </div>
+    <div class="fac" data-page="faculty">
+      <div class="fac-bg"></div>
+      <div class="fac-num">03 / Faculty</div>
+      <div class="fac-art" data-mark="Media"></div>
+      <h3 data-i18n="fac3_name"></h3>
+      <p data-i18n="fac3_desc"></p>
+      <div class="fac-meta"><span data-i18n="fac3_meta"></span><span class="arrow">→</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FACULTY (single) ============ -->
+<section class="page" data-page-id="faculty">
+  <div class="crumbs">
+    <a data-page="home">Home</a><span class="sep">/</span>
+    <a data-page="faculties" data-i18n="nav_faculties"></a><span class="sep">/</span>
+    <span class="cur" data-i18n="facp_crumb"></span>
+  </div>
+  <div class="sub-hero">
+    <div>
+      <div class="eyebrow" data-i18n="facp_eyebrow"></div>
+      <h1><em data-i18n="facp_title"></em></h1>
+      <p class="deck" data-i18n="facp_desc"></p>
+    </div>
+    <div class="sub-stats">
+      <div class="shs"><div class="n"><span class="count" data-count="2">0</span></div><div class="l" data-i18n="facp_kaf_kicker"></div></div>
+      <div class="shs"><div class="n"><span class="count" data-count="4">0</span></div><div class="l" data-i18n="facp_prog_kicker"></div></div>
+      <div class="shs"><div class="n"><span class="count" data-count="44">0</span></div><div class="l" data-i18n="stat_teachers_l"></div></div>
+      <div class="shs"><div class="n"><span class="count" data-count="980">0</span></div><div class="l" data-i18n="stat_students_l"></div></div>
+    </div>
+  </div>
+  <div class="dean">
+    <div class="dean-photo"></div>
+    <div>
+      <div class="eyebrow" data-i18n="facp_dean_kicker"></div>
+      <h3 data-i18n="facp_dean_name"></h3>
+      <div class="role" data-i18n="facp_dean_role"></div>
+      <div class="quote" data-i18n="facp_dean_q"></div>
+      <div class="bio" data-i18n="facp_dean_bio"></div>
+    </div>
+  </div>
+
+  <div class="sh">
+    <div class="sh-left">
+      <div class="eyebrow" data-i18n="facp_kaf_kicker"></div>
+      <h2 data-i18n="facp_kaf_title"></h2>
+    </div>
+  </div>
+  <div class="kaf-grid">
+    <div class="kaf-card" data-page="kafedra">
+      <div class="num">KAF · 01</div>
+      <h4>Internet <em>journalism</em></h4>
+      <div class="head">prof. D. Karimova</div>
+      <div class="stats"><span><strong>42</strong> faculty</span><span><strong>980</strong> students</span></div>
+    </div>
+    <div class="kaf-card" data-page="kafedra">
+      <div class="num">KAF · 02</div>
+      <h4>International <em>journalism</em></h4>
+      <div class="head">prof. A. Mirzaev</div>
+      <div class="stats"><span><strong>44</strong> faculty</span><span><strong>830</strong> students</span></div>
+    </div>
+    <div class="kaf-card" data-page="kafedra">
+      <div class="num">LAB · 03</div>
+      <h4><em>Data</em>-journalism lab</h4>
+      <div class="head">head S. Xodjaeva</div>
+      <div class="stats"><span><strong>8</strong> specialists</span><span><strong>120</strong> interns</span></div>
+    </div>
+  </div>
+
+  <div class="sh">
+    <div class="sh-left">
+      <div class="eyebrow" data-i18n="facp_prog_kicker"></div>
+      <h2 data-i18n="facp_prog_title"></h2>
+    </div>
+  </div>
+  <div class="progs">
+    <div class="progs-list">
+      <div class="prog">
+        <div class="c">60320100</div>
+        <div class="n"><em>Internet</em> journalism</div>
+        <div class="m">Bachelor · 4 years</div>
+        <div class="f">Creative · FL</div>
+        <div class="a">→</div>
+      </div>
+      <div class="prog">
+        <div class="c">60320100</div>
+        <div class="n"><em>International</em> journalism</div>
+        <div class="m">Bachelor · 4 years</div>
+        <div class="f">Creative · FL</div>
+        <div class="a">→</div>
+      </div>
+      <div class="prog">
+        <div class="c">70320101</div>
+        <div class="n"><em>Internet</em> journalism</div>
+        <div class="m">Master · 2 years</div>
+        <div class="f">Full-time</div>
+        <div class="a">→</div>
+      </div>
+      <div class="prog">
+        <div class="c">70320102</div>
+        <div class="n"><em>International</em> journalism</div>
+        <div class="m">Master · 2 years</div>
+        <div class="f">Full-time</div>
+        <div class="a">→</div>
+      </div>
+      <div class="prog">
+        <div class="c">70320101</div>
+        <div class="n">Higher courses in <em>journalism</em></div>
+        <div class="m">Master · retraining</div>
+        <div class="f">Evening</div>
+        <div class="a">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KAFEDRA ============ -->
+<section class="page" data-page-id="kafedra">
+  <div class="crumbs">
+    <a data-page="home">Home</a><span class="sep">/</span>
+    <a data-page="faculties" data-i18n="nav_faculties"></a><span class="sep">/</span>
+    <a data-page="faculty" data-i18n="kafp_crumb"></a><span class="sep">/</span>
+    <span class="cur" data-i18n="kafp_title"></span>
+  </div>
+  <div class="sub-hero">
+    <div>
+      <div class="eyebrow" data-i18n="kafp_eyebrow"></div>
+      <h1><em data-i18n="kafp_title"></em></h1>
+      <p class="deck" data-i18n="kafp_desc"></p>
+    </div>
+    <div class="sub-stats">
+      <div class="shs"><div class="n"><span class="count" data-count="8">0</span></div><div class="l" data-i18n="stat_teachers_l"></div></div>
+      <div class="shs"><div class="n"><span class="count" data-count="420">0</span></div><div class="l" data-i18n="stat_students_l"></div></div>
+      <div class="shs"><div class="n"><span class="count" data-count="6">0</span></div><div class="l" data-i18n="stat_programs_l"></div></div>
+      <div class="shs"><div class="n"><em>2020</em></div><div class="l">est.</div></div>
+    </div>
+  </div>
+  <div class="dean">
+    <div class="dean-photo"></div>
+    <div>
+      <div class="eyebrow" data-i18n="kafp_head_kicker"></div>
+      <h3 data-i18n="kafp_head_name"></h3>
+      <div class="role" data-i18n="kafp_head_role"></div>
+      <div class="bio" data-i18n="kafp_head_bio"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWS ============ -->
+<section class="page" data-page-id="news">
+  <div class="crumbs">
+    <a data-page="home">Home</a><span class="sep">/</span>
+    <span class="cur" data-i18n="nav_news"></span>
+  </div>
+  <div class="sub-hero">
+    <div>
+      <div class="eyebrow" data-i18n="news_kicker"></div>
+      <h1 data-i18n="news_title"></h1>
+      <p class="deck" data-i18n="hero_sub"></p>
+    </div>
+  </div>
+  <div class="news-full" id="news-full"></div>
+</section>
+
+<!-- ============ ARTICLE ============ -->
+<section class="page" data-page-id="article">
+  <div class="crumbs">
+    <a data-page="home">Home</a><span class="sep">/</span>
+    <a data-page="news" data-i18n="nav_news"></a><span class="sep">/</span>
+    <span class="cur" data-news-bind="title:1"></span>
+  </div>
+  <div class="article-hero">
+    <div class="eyebrow" data-i18n="art_eyebrow"></div>
+    <h1 data-i18n="art_title"></h1>
+    <p class="deck" data-i18n="art_deck"></p>
+    <div class="a-meta">
+      <span data-i18n="art_read_time"></span>
+      <span>·</span>
+      <span data-i18n="art_views"></span>
+      <span>·</span>
+      <span>DOI 10.17816/2026.04.12</span>
+    </div>
+  </div>
+  <div class="article-img"><div class="inner"></div></div>
+  <div class="article-body">
+    <p>Одиннадцатого апреля в главном корпусе Университета журналистики и массовых коммуникаций состоялась церемония подписания межвузовского соглашения, открывающего новую главу в истории международного сотрудничества OʻzJOKU. Документ закрепляет запуск программы двойных дипломов между университетом и французской École de Journalisme de Paris — одной из старейших школ журналистики Европы.</p>
+    <p>В церемонии приняли участие ректор OʻzJOKU <strong>Шерзодхон Қудратхўжа</strong>, директор EJP <strong>Marie-Claire Dubois</strong>, посол Франции в Узбекистане и представители профильных министерств обеих стран.</p>
+    <h2>Контекст <em>соглашения</em></h2>
+    <p>Партнёрство с EJP готовилось более двух лет. Первые переговоры состоялись в 2024 году в ходе визита делегации OʻzJOKU в Париж. За это время стороны согласовали единую образовательную траекторию, систему взаимозачёта кредитов ECTS и условия финансирования академической мобильности.</p>
+    <blockquote>
+      Журналистика XXI века — это профессия без границ. Мы обучаем студентов работать с источниками на пяти континентах, и логично, что их дипломы тоже должны работать в пяти континентах.
+      <cite>— Шерзодхон Қудратхўжа, ректор OʻzJOKU</cite>
+    </blockquote>
+    <h2>Программа <em>обучения</em></h2>
+    <p>Программа рассчитана на <strong>четыре года</strong>. Первые два года студенты проводят в Ташкенте, изучая базовые дисциплины. Третий курс полностью проходит в кампусе EJP в Париже, четвёртый — практика в редакциях Европы или Узбекистана.</p>
+    <ul>
+      <li><em>Год 1–2 (Ташкент):</em> фундаментальная подготовка, языки, введение в международную журналистику</li>
+      <li><em>Год 3 (Париж):</em> мастер-классы ведущих журналистов AFP, Le Monde, France 24</li>
+      <li><em>Год 4 (выборочно):</em> практика в редакциях, защита выпускной работы</li>
+    </ul>
+    <h2>Отбор <em>участников</em></h2>
+    <p>В программу принимают студентов со второго курса по результатам конкурсного отбора. Ключевые критерии: средний балл не ниже 4.6, уровень французского языка B2+, эссе и собеседование с совместной комиссией OʻzJOKU и EJP. Первый набор — 30 человек — стартует в сентябре 2026 года.</p>
+  </div>
+</section>
+
+<!-- ============ ADMISSION ============ -->
+<section class="page" data-page-id="admission">
+  <div class="crumbs">
+    <a data-page="home">Home</a><span class="sep">/</span>
+    <span class="cur" data-i18n="nav_admission"></span>
+  </div>
+  <div class="sub-hero">
+    <div>
+      <div class="eyebrow" data-i18n="adm_kicker"></div>
+      <h1><em data-i18n="admp_title"></em></h1>
+      <p class="deck" data-i18n="admp_desc"></p>
+    </div>
+    <div class="sub-stats">
+      <div class="shs"><div class="n"><span class="count" data-count="10">0</span></div><div class="l">Bachelor</div></div>
+      <div class="shs"><div class="n"><span class="count" data-count="12">0</span></div><div class="l">Master</div></div>
+      <div class="shs"><div class="n"><em>25.07</em></div><div class="l">deadline</div></div>
+      <div class="shs"><div class="n"><span class="count" data-count="134">0</span></div><div class="l">max score '24</div></div>
+    </div>
+  </div>
+
+  <div class="sh">
+    <div class="sh-left">
+      <div class="eyebrow">◆ How to apply</div>
+      <h2>Четыре <em>шага</em> до зачисления</h2>
+    </div>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="badge">1</div>
+      <h4 data-i18n="admp_step1_t"></h4>
+      <p data-i18n="admp_step1_d"></p>
+    </div>
+    <div class="step">
+      <div class="badge">2</div>
+      <h4 data-i18n="admp_step2_t"></h4>
+      <p data-i18n="admp_step2_d"></p>
+    </div>
+    <div class="step">
+      <div class="badge">3</div>
+      <h4 data-i18n="admp_step3_t"></h4>
+      <p data-i18n="admp_step3_d"></p>
+    </div>
+    <div class="step">
+      <div class="badge">4</div>
+      <h4 data-i18n="admp_step4_t"></h4>
+      <p data-i18n="admp_step4_d"></p>
+    </div>
+  </div>
+
+  <div class="adm-cta">
+    <div class="adm-inner">
+      <div>
+        <div class="adm-badge"><span class="p"></span><span data-i18n="adm_kicker"></span></div>
+        <h3 data-i18n="adm_title"></h3>
+        <p data-i18n="adm_desc"></p>
+      </div>
+      <div class="adm-action">
+        <button class="btn btn-white"><span data-i18n="adm_cta"></span><span class="arrow">→</span></button>
+        <div class="deadline" data-i18n="adm_deadline"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACTS ============ -->
+<section class="page" data-page-id="contacts">
+  <div class="crumbs">
+    <a data-page="home">Home</a><span class="sep">/</span>
+    <span class="cur" data-i18n="cont_title"></span>
+  </div>
+  <div class="sub-hero">
+    <div>
+      <div class="eyebrow" data-i18n="cont_title"></div>
+      <h1 data-i18n="cont_title"></h1>
+      <p class="deck" data-i18n="cont_desc"></p>
+    </div>
+  </div>
+  <div class="contacts-grid">
+    <div class="contact-card">
+      <div class="k">Address</div>
+      <h3 data-i18n="cont_addr"></h3>
+      <p data-i18n="cont_phone"></p>
+      <a class="email" href="/cdn-cgi/l/email-protection#7e171018113e14131d0b500b04" data-i18n="cont_email"></a>
+    </div>
+    <div class="map-tile">
+      <div class="pin"></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <h4>O<em>ʻz</em>JOKU</h4>
+      <p data-i18n="ft_desc"></p>
+      <div class="addr">
+        <span data-i18n="cont_addr"></span><br>
+        <span data-i18n="cont_phone"></span><br>
+        <span data-i18n="cont_email"></span>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h5 data-i18n="ft_nav"></h5>
+      <ul>
+        <li><a data-page="about" data-i18n="nav_university"></a></li>
+        <li><a data-page="faculties" data-i18n="nav_faculties"></a></li>
+        <li><a data-page="news" data-i18n="nav_news"></a></li>
+        <li><a href="#">Library</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5 data-i18n="ft_abit"></h5>
+      <ul>
+        <li><a data-page="admission" data-i18n="nav_admission"></a></li>
+        <li><a href="#">Rules</a></li>
+        <li><a href="#">Tuition</a></li>
+        <li><a href="#">Dormitory</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5 data-i18n="ft_srv"></h5>
+      <ul>
+        <li><a href="#">HEMIS</a></li>
+        <li><a href="#">Virtual reception</a></li>
+        <li><a href="#">Corporate mail</a></li>
+        <li><a href="#">Telegram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span data-i18n="ft_copy"></span>
+    <span>Veritas · Libertas · Responsibilitas</span>
+  </div>
+</footer>
+
+<!-- Tweaks panel -->
+<div class="tweaks" id="tweaks">
+  <div class="tweaks-title">Tweaks</div>
+  <div class="tweaks-row">
+    <span class="mono" style="font-size:11px;color:var(--fg-muted)">Theme</span>
+    <div class="theme-toggle">
+      <button data-theme="light">Light</button>
+      <button data-theme="dark">Dark</button>
+    </div>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script id="editmode-config">
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "theme": "light"
+  }/*EDITMODE-END*/;
+</script>
+<script src="assets/i18n.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
