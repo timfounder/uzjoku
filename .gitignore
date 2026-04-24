@@ -1,0 +1,20 @@
+node_modules/
+.DS_Store
+.env
+.env.*
+*.log
+npm-debug.log*
+.vscode/
+.idea/
+dist/
+build/
+
+# Artifacts we don't need in the repo
+UZJOKU Website (standalone).html
+
+# User-uploaded media (served from a Railway volume in production)
+assets/uploads/*
+!assets/uploads/.gitkeep
+
+# i18n backup created by the admin save flow
+assets/i18n.js.bak
