@@ -1554,3 +1554,20 @@ html[lang="ru"] .only-ru, html[lang="uz"] .only-uz, html[lang="en"] .only-en { d
   .sh { flex-direction: column; align-items: flex-start; }
   .journal-inner { grid-template-columns: 1fr; }
 }
+
+/* ---------- admin-driven photo slots ----------
+   When a photo URL is set for a slot, app.js adds `.has-photo` to the
+   corresponding [data-photo] element. Decorative overlays / gradients
+   that would mask the photo are hidden in that state. */
+.dean-photo.has-photo::before,
+.dean-photo.has-photo::after { display: none; }
+.dean-photo.has-photo { background-color: transparent; }
+
+.fac-bg.has-photo { opacity: 1; filter: saturate(1) brightness(0.78); }
+
+.nc-thumb-inner.has-photo { background-image: var(--ph, none); }
+.nc-thumb-inner.has-photo::before { opacity: 0.35; }
+
+.hero-bg.has-photo { opacity: 0.9; filter: saturate(0.95); }
+
+.article-img .inner.has-photo::before { opacity: 0.3; }
