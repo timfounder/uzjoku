@@ -28,11 +28,39 @@
     });
     if (dict.page_title) document.title = dict.page_title;
     $$('#lang-switcher button').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    applyMedia();
     renderHomeNews();
     renderNewsFull();
     rebindNewsPlaceholders();
   }
   function setLang(l){ lang = l; localStorage.setItem('uzj_lang', l); applyI18n(); }
+
+  /* -------- Media (photos bound to site slots) --------
+   * Keys of the form `img_<slot>` are expected to hold an image URL
+   * (or an empty string) and are the same in every language dict.
+   * Applying them mutates style.backgroundImage on the matching
+   * [data-photo=<slot>] element so the public site shows whatever
+   * the admin panel has set for that slot.
+   */
+  function mediaVal(key){
+    const r = window.I18N && window.I18N.ru && window.I18N.ru[key];
+    return typeof r === 'string' ? r.trim() : '';
+  }
+  function applyMedia(){
+    $$('[data-photo]').forEach(el => {
+      const slot = el.getAttribute('data-photo');
+      const url  = mediaVal('img_' + slot);
+      if (url) {
+        el.style.backgroundImage = `url("${url.replace(/"/g, '%22')}")`;
+        el.style.backgroundSize  = 'cover';
+        el.style.backgroundPosition = 'center';
+        el.classList.add('has-photo');
+      } else {
+        el.style.backgroundImage = '';
+        el.classList.remove('has-photo');
+      }
+    });
+  }
 
   /* -------- Theme -------- */
   let theme = localStorage.getItem('uzj_theme') || (window.TWEAK_DEFAULTS && window.TWEAK_DEFAULTS.theme) || 'light';
@@ -79,10 +107,12 @@
     const title = d[`${n.key}_title`] || '';
     const desc = d[`${n.key}_desc`] || d['n1_desc'] || '';
     const date = d[`${n.key}_date`] || '';
+    const img = mediaVal(`img_news${n.i}`);
+    const imgStyle = img ? ` style="background-image:url('${img.replace(/'/g, '%27')}');background-size:cover;background-position:center"` : '';
     const variantClass = {big:'nc-big', side:'nc-side', small:'nc-small', full:''}[variant] || '';
     return `
       <a class="nc ${variantClass}" data-page="article">
-        <div class="nc-thumb"><div class="nc-thumb-inner ${n.art}"></div>
+        <div class="nc-thumb"><div class="nc-thumb-inner ${n.art}${img ? ' has-photo' : ''}"${imgStyle}></div>
           <span class="nc-cat">${cat}</span>
           <span class="nc-date">${date}</span>
         </div>

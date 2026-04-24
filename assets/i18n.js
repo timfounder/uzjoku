@@ -208,7 +208,20 @@ window.I18N = {
     ft_reception: "Виртуальная приёмная",
     ft_mail: "Корпоративная почта",
     ft_telegram: "Telegram",
-    ft_copy: "© 2018–2026 OʻzJOKU. Все права защищены."
+    ft_copy: "© 2018–2026 OʻzJOKU. Все права защищены.",
+    img_hero_bg: "",
+    img_rector: "",
+    img_dean: "",
+    img_kafhead: "",
+    img_article: "",
+    img_fac1: "",
+    img_fac2: "",
+    img_fac3: "",
+    img_news1: "",
+    img_news2: "",
+    img_news3: "",
+    img_news4: "",
+    img_news5: ""
   },
   uz: {
     brand: "OʻzJOKU",
@@ -418,7 +431,20 @@ window.I18N = {
     ft_reception: "Virtual qabulxona",
     ft_mail: "Korporativ pochta",
     ft_telegram: "Telegram",
-    ft_copy: "© 2018–2026 OʻzJOKU. Barcha huquqlar himoyalangan."
+    ft_copy: "© 2018–2026 OʻzJOKU. Barcha huquqlar himoyalangan.",
+    img_hero_bg: "",
+    img_rector: "",
+    img_dean: "",
+    img_kafhead: "",
+    img_article: "",
+    img_fac1: "",
+    img_fac2: "",
+    img_fac3: "",
+    img_news1: "",
+    img_news2: "",
+    img_news3: "",
+    img_news4: "",
+    img_news5: ""
   },
   en: {
     brand: "OʻzJOKU",
@@ -628,6 +654,19 @@ window.I18N = {
     ft_reception: "Virtual reception",
     ft_mail: "Corporate mail",
     ft_telegram: "Telegram",
-    ft_copy: "© 2018–2026 OʻzJOKU. All rights reserved."
+    ft_copy: "© 2018–2026 OʻzJOKU. All rights reserved.",
+    img_hero_bg: "",
+    img_rector: "",
+    img_dean: "",
+    img_kafhead: "",
+    img_article: "",
+    img_fac1: "",
+    img_fac2: "",
+    img_fac3: "",
+    img_news1: "",
+    img_news2: "",
+    img_news3: "",
+    img_news4: "",
+    img_news5: ""
   }
 };
