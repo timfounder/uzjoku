@@ -22,6 +22,11 @@
       const k = el.getAttribute('data-i18n');
       if (dict[k] !== undefined) el.textContent = dict[k];
     });
+    $$('[data-i18n-html]').forEach(el => {
+      const k = el.getAttribute('data-i18n-html');
+      if (dict[k] !== undefined) el.innerHTML = dict[k];
+    });
+    if (dict.page_title) document.title = dict.page_title;
     $$('#lang-switcher button').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
     renderHomeNews();
     renderNewsFull();
