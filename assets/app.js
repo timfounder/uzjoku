@@ -26,6 +26,7 @@
       const k = el.getAttribute('data-i18n-html');
       if (dict[k] !== undefined) el.innerHTML = dict[k];
     });
+    if (dict.page_title) document.title = dict.page_title;
     $$('#lang-switcher button').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
     renderHomeNews();
     renderNewsFull();
