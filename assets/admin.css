@@ -53,6 +53,7 @@ a:hover { text-decoration: underline; }
 .btn:disabled { opacity: 0.6; cursor: progress; }
 .btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
 .btn-primary:hover { background: var(--accent-2); border-color: var(--accent-2); }
+.btn-primary.is-saving { opacity: 0.85; }
 .btn-ghost { background: transparent; }
 .btn-danger { color: var(--bad); border-color: var(--border); }
 .btn-danger:hover { border-color: var(--bad); }
@@ -158,13 +159,19 @@ a:hover { text-decoration: underline; }
 .lang-head > div { padding: 8px 12px; border-right: 1px solid var(--border); }
 .lang-head > div:last-child { border-right: 0; }
 
+.rows {
+  border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden; background: var(--panel);
+}
 .field-row {
   background: var(--panel);
-  border: 1px solid var(--border); border-top: 0;
+  border-bottom: 1px solid var(--border);
+  transition: background 200ms;
 }
-.field-row:first-of-type { border-top: 1px solid var(--border); border-radius: var(--radius) var(--radius) 0 0; }
-.field-row:last-of-type { border-radius: 0 0 var(--radius) var(--radius); }
+.field-row:last-child { border-bottom: 0; }
 .field-row.dirty { background: #fff8e8; }
+.field-row.flash-ok { background: #e8fae6; }
+.slot.flash-ok { border-color: #95d790; background: #e8fae6; }
 .field-row > div { padding: 10px 12px; border-right: 1px solid var(--border); }
 .field-row > div:last-child { border-right: 0; }
 
